@@ -1,0 +1,594 @@
+<div class="grid grid-cols-3 h-auto w-full bg-gray-300 p-2">
+    <div class="flex justify-center">
+        <button class="bg-white rounded-3xl mx-2 py-2 px-2 flex justify-center font-bold text-gray-400" (click)="activeSprint=!activeSprint" style="width:30%;">
+            Active Sprint
+        </button> 
+        <div class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-gray-400" style="width:20%;">
+            +2 More
+        </div> 
+    </div>
+    <div class="grid grid-cols-2">
+        <div class="float-right">
+            <button class="bg-blue rounded-3xl lg:float-right mx-2 py-2 px-5" style="display: flex;">
+                <img src="assets/sendIcon.svg" alt="" style="height:20px; width:20px; margin-right:10px;">
+                <span class="text-white">Send a Kudo</span>
+            </button>
+        </div>  
+        <div class="float-left">
+            <button class="bg-blue rounded-3xl lg:float-left text-white mx-2 py-2 px-5" style="display: flex;">
+                <img src="assets/playIcon.svg" alt="" style="height:20px; width:20px; margin-right:10px;">
+                <span class="text-white">
+                    Play Kudoboard
+                </span>
+            </button>
+        </div> 
+    </div>
+    <div class="flex justify-end">
+        <div class="bg-white rounded-3xl mx-2 py-2 px-5" style="width:50%;">
+            <i class="fa fa-search flex align-middle float-right"></i>
+        </div> 
+        <button class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-blue-950" style="width:30%;" (click)="given=!given;" *ngIf="given==false">
+                Given
+        </button>
+        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950" style="width:30%; height:40px; background-color: #3F72B0; color:#fff;" (click)="given=!given;" *ngIf="given==true">
+            <span style="margin-right:-30px;">
+                Given
+            </span> 
+            <img src="assets/bottomRight4.png" style="position: relative; right:-33px; top:-20px;">
+        </button> 
+        <button class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-blue-950" style="width:30%;" (click)="received=!received;" *ngIf="received==false">
+            Received
+        </button>
+        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950" style="width:30%; height:40px; background-color: #3F72B0; color:#fff;" (click)="received=!received;" *ngIf="received==true">
+            <span style="margin-right:-30px;">
+                Received
+            </span> 
+        <img src="assets/bottomRight4.png" style="position: relative; right:-33px; top:-20px;">
+    </button> 
+        <div style="width:30%; display: flex; align-items: center; justify-content: start; margin-left:10px;">
+            <img src="assets/threeDots.svg" alt="" style="height:25px;">
+        </div>
+    </div>
+</div>
+<!-- <div *ngIf="activeSprint==true" style="position: absolute; top:60px; left:150px; background:#fff;">
+    aaa
+</div> -->
+<div class="grid grid-cols-4 h-100 w-full bg-gray-100 p-7">
+    <div class="flex flex-col w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern1.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft1.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Totally Awesome
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight1.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important; top:0px; right:-20px;">
+            </div>
+        </div>
+        <div class="card-content">
+            Thank you for always being my sides during all the interviews and decision makings in the last sprint. Without you if wouldn't be that easy for me to manage everything. Looking forward for more tasks together :D
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div class="imageSection">
+                    <img src="assets/imageIcon.svg" alt="">
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="w-1/2 justify-center">
+                <div class="flex" style="margin-bottom:10px; width:50%; padding:10px; background:#fff; box-shadow:3px 3px 6px #00000029;">
+                    <img src="assets/linkdinIcon.svg" alt="" class="img">
+                    <img src="assets/xingIcon.svg" alt="" class="img">
+                    <img src="assets/facebookLogo.svg" alt="" class="img">
+                </div>
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight1.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern2New.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft2.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Congratulations
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight2.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important; right:45px; top:-69px;">
+            </div>
+        </div>
+        <div class="card-content">
+            I liked your statement and willing to carry forward this learning onwards- As you said “you need all the managers in the team, We lack managers , workers are abundant in the market “.
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/redHeartIcon.svg" alt=""> 3
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight2.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern3New.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft3.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Proud
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight3.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content">
+            Amazing Job Bhai on Spiritto UI/UX. I was wondering earlier how we could digitalized that module but what you did was beyond my expectation level :D
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight3.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern4New.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft4.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+               Great Job
+            </div>
+            <div style="width:10%; position: relative;">
+                <img src="assets/topRight4.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content">
+            A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight4.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern5New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft5.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Well Done
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight5.svg" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content" style="font: italic normal normal 21px/16px Brush Script MT;">
+            A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight5.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern6New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft6.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Thanks
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight6.svg" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content">
+            A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight6.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern7New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft7.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Very Happy
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight7.svg" class="imageRight" style="position:absolute; max-width:unset!important; top:-25px; right:10px;">
+            </div>
+        </div>
+        <div class="card-content" style="font: italic normal normal 13px/16px Iowan Old Style;">
+            Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well and created the UI design and concept based on the Merit money. Keep it up! :) Cheers
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight7.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern8New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft8.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Many Thanks
+            </div>
+            <div style="width:10%; position: relative;">
+                <img src="assets/topRight8.svg" class="imageRight" style="position:absolute; max-width:unset!important; right:10px;">
+            </div>
+        </div>
+        <div class="card-content">
+            Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well and created the UI design and concept based on the Merit money. Keep it up! :) Cheers
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight8.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern3New.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft3.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Proud
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight3.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content">
+            Amazing Job Bhai on Spiritto UI/UX. I was wondering earlier how we could digitalized that module but what you did was beyond my expectation level :D
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight3.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern4New.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft4.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+               Great Job
+            </div>
+            <div style="width:10%; position: relative;">
+                <img src="assets/topRight4.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content">
+            A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight4.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern1.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft1.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Totally Awesome
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight1.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important; top:0px; right:-20px;">
+            </div>
+        </div>
+        <div class="card-content" style="font: italic normal normal 19px/16px Brush Script MT;">
+            Thank you for always being my sides during all the interviews and decision makings in the last sprint. Without you if wouldn't be that easy for me to manage everything. Looking forward for more tasks together :D
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight1.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern2New.svg');">
+        <div class="flex">
+            <div style="width:-10%;">
+                <img src="assets/topLeft2.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Congratulations
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight2.svg" alt="" class="imageRight" style="position:absolute; max-width:unset!important; right:45px; top:-69px;">
+            </div>
+        </div>
+        <div class="card-content">
+            I liked your statement and willing to carry forward this learning onwards- As you said “you need all the managers in the team, We lack managers , workers are abundant in the market “.
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/redHeartIcon.svg" alt=""> 3
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight2.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern6New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft6.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Thanks
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight6.svg" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content">
+            A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight6.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern7New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft7.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Very Happy
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight7.svg" class="imageRight" style="position:absolute; max-width:unset!important; top:-25px; right:10px;">
+            </div>
+        </div>
+        <div class="card-content">
+            Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well and created the UI design and concept based on the Merit money. Keep it up! :) Cheers
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight7.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern8New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft8.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Many Thanks
+            </div>
+            <div style="width:10%; position: relative;">
+                <img src="assets/topRight8.svg" class="imageRight" style="position:absolute; max-width:unset!important; right:10px;">
+            </div>
+        </div>
+        <div class="card-content">
+            Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well and created the UI design and concept based on the Merit money. Keep it up! :) Cheers
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight8.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col align-middle w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern5New.svg');">
+        <div class="flex">
+            <div class="float-left" style="width:-10%;">
+                <img src="assets/topLeft5.png" alt="" class="imageLeft">
+            </div>
+            <div class="card-head">
+                Well Done
+            </div>
+            <div style="width:10%; position:relative;">
+                <img src="assets/topRight5.svg" class="imageRight" style="position:absolute; max-width:unset!important;">
+            </div>
+        </div>
+        <div class="card-content">
+            A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+        </div>
+        <div class="flex" style="align-items:end;">
+            <div class="w-1/3 flex justify-start align-bottom">
+                <div class="likeSection">
+                    <img src="assets/heartIcon.svg" alt=""> 2
+                </div>
+                <div class="commentSection"> 
+                    <img src="assets/commentIcon.svg" alt=""> 5
+                </div>
+                <div style="width:10%;">
+                </div>
+            </div>
+            <div class="flex w-1/2 justify-center align-bottom">
+            </div>
+            <div class="w-1/4">
+                <img src="assets/bottomRight5.png" class="float-right img" alt="" class="imageBottom">
+            </div>
+        </div>
+    </div>
+</div>
+

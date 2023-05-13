@@ -1,0 +1,77 @@
+.bg-blue {
+    background-color: #3F72B0;
+}
+
+.card-content {
+    height: 130px;
+    font: normal normal normal 13px/16px Baloo Bhaina 2;
+    margin-top:20px;
+}
+
+.img {
+    height: 20px;
+    width: 20px;
+    transform: rotate(270deg);
+    margin-right: 5px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    width: auto;
+    padding: 0px 10px 10px 10px;
+    margin:20px 10px;
+    box-shadow: 3px 3px 6px #00000029;
+}
+
+.card-head {
+    width: 80%;
+    font: normal normal normal 30px/56px Cute Font;
+    text-align: center;
+    color:#fff;
+    z-index:1;
+}
+
+.imageLeft {
+    height: 50px;
+    width: 50px;
+}
+
+.imageRight {
+    position: absolute;
+    transform: rotate(270deg);
+    top: -10px;
+    right: -10px;
+}
+
+.imageBottom{
+    height: 50px; 
+    width: 50px; 
+    transform: rotate(360deg);
+    float:right;
+}
+
+.likeSection{
+    width:30%; display: flex; margin-right:5px;
+}
+.likeSection img{
+    transform: rotate(270deg); margin-right:5px;
+}
+.commentSection{
+    width:30%; display: flex; margin-right:5px;
+}
+.commentSection img{
+    transform: rotate(270deg); margin-right:5px;
+}
+.imageSection{
+    width:10%; display: flex; margin-right:5px;
+}
+.imageSection img{
+    transform: rotate(270deg); margin-right:5px;
+}
+
+.has-bg-img{
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+}
