@@ -7,15 +7,15 @@
             +2 More
         </div> 
     </div>
-    <div class="grid grid-cols-2">
+    <div class="grid grid-cols-2" *ngIf="exportMode==false">
         <div class="float-right">
-            <button class="bg-blue rounded-3xl lg:float-right mx-2 py-2 px-5" style="display: flex;">
+            <button class="bg-blue rounded-3xl lg:float-right mx-2 py-2 px-5 d-flex">
                 <img src="assets/sendIcon.svg" alt="" style="height:20px; width:20px; margin-right:10px;">
                 <span class="text-white">Send a Kudo</span>
             </button>
         </div>  
         <div class="float-left">
-            <button class="bg-blue rounded-3xl lg:float-left text-white mx-2 py-2 px-5" style="display: flex;">
+            <button class="bg-blue rounded-3xl lg:float-left text-white mx-2 py-2 px-5 d-flex">
                 <img src="assets/playIcon.svg" alt="" style="height:20px; width:20px; margin-right:10px;">
                 <span class="text-white">
                     Play Kudoboard
@@ -23,7 +23,28 @@
             </button>
         </div> 
     </div>
-    <div class="flex justify-end">
+    <div class="flex flex-row justify-start" *ngIf="exportMode==true">
+        <div>
+            <button class="bg-blue rounded-3xl py-2 px-7 mx-2 d-flex justify-center">
+                <span class="text-white">Export PDF</span>
+            </button>
+        </div>  
+        <div>
+            <button class="bg-blue rounded-3xl text-white py-2 px-7 mx-2 d-flex justify-center">
+                <span class="text-white">
+                    Export DOC
+                </span>
+            </button>
+        </div> 
+        <div>
+            <button class="bg-blue rounded-3xl text-white py-2 px-7 mx-2 d-flex justify-center">
+                <span class="text-white">
+                    Export JPG
+                </span>
+            </button>
+        </div> 
+    </div>
+    <div class="flex justify-end" style="align-items: center;">
         <div class="bg-white rounded-3xl mx-2 py-2 px-5" style="width:50%;">
             <i class="fa fa-search flex align-middle float-right"></i>
         </div> 
@@ -44,21 +65,26 @@
                 Received
             </span> 
         <img src="assets/bottomRight4.png" style="position: relative; right:-33px; top:-20px;">
-    </button> 
-        <div style="width:30%; display: flex; align-items: center; justify-content: start; margin-left:10px;">
-            <img src="assets/threeDots.svg" alt="" style="height:25px;">
+        </button> 
+        <div style="width:30%; display: flex; align-items: center; justify-content: start; margin-left:10px;" *ngIf="exportMode==false">
+            <img src="assets/threeDots.svg" alt="" style="height:25px;"  (click)="settingDropdown=!settingDropdown">
+        </div>
+        <div style="width:30%; height:30%; display: flex; align-items: center; justify-content: start; margin-left:10px;" *ngIf="exportMode==true" (click)="exportMode=false">
+                <i class="fa fa-times closeIcon"></i>
         </div>
     </div>
 </div>
-<!-- <div *ngIf="activeSprint==true" style="position: absolute; top:60px; left:150px; background:#fff;">
-    aaa
-</div> -->
-<div class="grid grid-cols-4 h-100 w-full bg-gray-100 p-7">
-    <div class="flex flex-col w-1/4 m-2 card has-bg-img" style="background-image: url('assets/topPattern1.svg');">
+
+<div class="grid grid-cols-4 h-100 w-full bg-gray-100 p-7" style="position: relative;">
+    <div class="flex flex-col w-1/4 m-2 card has-bg-img"  style="background-image:url('assets/topPattern1.svg');">
         <div class="flex">
-            <div style="width:-10%;">
-                <img src="assets/topLeft1.png" alt="" class="imageLeft">
+            <div style="width:-10%;"  (focus)="showName=!showName">
+                <img src="assets/topLeft1.png" alt="" class="imageLeft imageLeft1">
+                
             </div>
+            <div class="overlay" *ngIf="showName">
+                <div class="text">Hello World</div>
+              </div>
             <div class="card-head">
                 Totally Awesome
             </div>
@@ -69,10 +95,11 @@
         <div class="card-content">
             Thank you for always being my sides during all the interviews and decision makings in the last sprint. Without you if wouldn't be that easy for me to manage everything. Looking forward for more tasks together :D
         </div>
-        <div class="flex" style="align-items:end;">
+        <div class="flex has-bg-bottom" style="align-items:end;">
             <div class="w-1/3 flex justify-start align-bottom">
                 <div class="likeSection">
                     <img src="assets/heartIcon.svg" alt=""> 2
+                    <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
                 </div>
                 <div class="commentSection"> 
                     <img src="assets/commentIcon.svg" alt=""> 5
@@ -592,3 +619,164 @@
     </div>
 </div>
 
+<div *ngIf="activeSprint==true" class="activeSprintDropdown z-index">
+    <div class="position:relative;">
+        <input class="w-80 borderGray pl-2" type="search" placeholder="Search">
+        <i class="fa fa-search flex align-middle float-right search-icon"></i>
+    </div>
+    <div class="flex flex-col w-80">
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Active Sprint</p>
+            <div>
+                <small>Started 3 days ago</small>
+                <i class="fa fa-check-circle check"></i>
+            </div>
+            
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 33VZ</p>
+            <div>
+                <small>21st June - 28th Jun</small>
+                <i class="fa fa-check-circle check"></i>
+            </div>
+            
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 32VZ</p>
+            <div>
+                <small>12th June - 19th Jun</small>
+                <i class="fa fa-check-circle checkGray"></i>
+            </div>
+            
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 31VZ</p>
+            <div>
+                <small>3rd June - 10th Jun</small>
+                <i class="fa fa-check-circle check"></i>
+            </div>
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 30VZ</p>
+            <div>
+                <small>12th June - 19th Jun</small>
+                <i class="fa fa-check-circle checkGray"></i>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div *ngIf="settingDropdown==true" class="settingDropdown z-index">
+    <div class="flex flex-col">
+        <div class="flex justify-start align-middle py-2" (click)="exportMode=true; settingDropdown=false">
+            <div>
+                <i class="fa fa-file check mr-2"></i>
+            </div>
+            <p>Export Mode</p>
+        </div>
+        <div class="flex justify-start align-middle py-2" (click)="popup = true; settingDropdown=false">
+            <div>
+                <i class="fa fa-cog check mr-2"></i>
+            </div>
+            <p>Settings</p>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="popup">
+	<div class="popup">
+        <div class="flex justify-between align-middle" style="background: #3F72B0 0% 0% no-repeat padding-box; opacity: 0.28;">
+            <div>
+                <img src="" alt="">
+            </div>
+            <div class="text-white" style="font-size:40px;">
+                Settings
+            </div>
+            <div style="display: flex; align-items: center; justify-content: start;" (click)="popup = false">
+                <i class="fa fa-times closeIcon"></i>
+            </div>
+        </div>
+		<div class="content flex flex-row">
+            <!-- <div class="popupContent" style="height:400px; overflow-y: auto;"> -->
+            <div class="popupContent">
+                <div class="flex justify-center">
+                    <p class="popupHead">
+                        Color Palette
+                    </p>
+                </div>
+                <div class="flex justify-between" style="padding:20px;">
+                    <div style="width:50%; border-right:1px solid lightgray; padding:10px;">
+                        <div>
+                            <input type="radio" style="padding:20px; margin:20px;">
+                            <b>Default</b>
+                        </div>
+                        <div>
+                            <input type="radio" style="padding:20px; margin:20px;">
+                            <b>Return of the Jedi</b>
+                        </div>
+                        <div>
+                            <input type="radio" style="padding:20px; margin:20px;">
+                            <b>Forest</b>
+                        </div>
+                        <div>
+                            <input type="radio" style="padding:20px; margin:20px;">
+                            <b>Techno</b>
+                        </div>
+                        <div>
+                            <input type="radio" style="padding:20px; margin:20px;">
+                            <b>Custom</b>
+                        </div>
+                    </div>
+                    <div style="width:50%; overflow-y: auto; padding:10px; display: flex; flex-direction:column; justify-content: center; align-items: start;">
+                        <div class="card" style="height:100px; width:100%;">
+
+                        </div>
+                        <div class="card" style="height:100px; width:100%;">
+
+                        </div>
+                        <div class="card" style="height:100px; width:100%;">
+
+                        </div>
+                        <div class="card" style="height:100px; width:100%;">
+
+                        </div>
+                        <div class="card" style="height:100px; width:100%;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popupContent">
+                <div class="flex justify-center">
+                    <p class="popupHead">
+                        Prizes
+                    </p>
+                </div>
+                <div class="prizeDiv" *ngIf="addPrize==true">
+                    <div>
+                        <b>Prize Name</b><br/>
+                        <b class="text-gray-400">Box of chocolate</b>
+                    </div>
+                    <div>
+                        <b>Images (Optional)</b><br/>
+                        <input type="file">
+                    </div>
+                   
+                </div>
+                <div class="plusIcon" (click)="addPrize=!addPrize">
+                    <i class="fa fa-plus" style="color:#fff; font-size:30px;"></i>
+                </div>
+                <div class="plusIcon" (click)="addPrize=false" *ngIf="addPrize==true">
+                    <i class="fa fa-check" style="color:#fff; font-size:30px;"></i>
+                </div>
+               
+            </div>
+		</div>
+        <div class="flex justify-center">
+            <button class="bg-blue rounded-3xl mx-2 py-2 px-20 d-flex">
+                <span class="text-white">Save</span>
+            </button>
+        </div>
+	</div>
+</div>

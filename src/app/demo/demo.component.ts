@@ -9,4 +9,9 @@ export class DemoComponent {
   given=false;
   received=false;
   activeSprint=false;
+  settingDropdown=false;
+  exportMode=false;
+  showName=false;
+  popup=false;
+  addPrize=false;
 }
