@@ -14,4 +14,5 @@ export class DemoComponent {
   showName=false;
   popup=false;
   addPrize=false;
+  checkPrize=false;
 }

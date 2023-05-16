@@ -51,7 +51,7 @@
         <button class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-blue-950" style="width:30%;" (click)="given=!given;" *ngIf="given==false">
                 Given
         </button>
-        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950" style="width:30%; height:40px; background-color: #3F72B0; color:#fff;" (click)="given=!given;" *ngIf="given==true">
+        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950" style="width:40%; height:40px; background-color: #3F72B0; color:#fff;" (click)="given=!given;" *ngIf="given==true">
             <span style="margin-right:-30px;">
                 Given
             </span> 
@@ -60,7 +60,7 @@
         <button class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-blue-950" style="width:30%;" (click)="received=!received;" *ngIf="received==false">
             Received
         </button>
-        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950" style="width:30%; height:40px; background-color: #3F72B0; color:#fff;" (click)="received=!received;" *ngIf="received==true">
+        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950" style="width:40%; height:40px; background-color: #3F72B0; color:#fff;" (click)="received=!received;" *ngIf="received==true">
             <span style="margin-right:-30px;">
                 Received
             </span> 
@@ -753,12 +753,27 @@
                         <b>Images (Optional)</b><br/>
                         <input type="file">
                     </div>
-                   
+                </div>
+                <div *ngIf="checkPrize==true">
+                    <div style="border-bottom:1px solid lightgray; display: flex; flex-direction:row; justify-content:flex-start; align-items:center; padding:25px;">
+                        <i class="fa fa-times-circle" style="font-size:20px; margin-right:10px;"></i>
+                        <img src="assets/pen.jpg" style="height:70px; width:70px; border-radius: 50%; border:1px solid #000; margin-right:10px;">
+                        <h1 style="font-size:25px; font-weight: bold;">Pen</h1>
+                    </div>  
+                    <div style="border-bottom:1px solid lightgray; display: flex; flex-direction:row; justify-content:flex-start; align-items:center; padding:25px;">
+                        <i class="fa fa-times-circle" style="font-size:20px; margin-right:10px;"></i>
+                        <img src="assets/car.jpg" style="height:70px; width:70px; border-radius: 50%; border:1px solid #000; margin-right:10px;">
+                        <h1 style="font-size:25px; font-weight: bold;">Car</h1>
+                    </div> 
+                    <div style="border-bottom:1px solid lightgray;display: flex; flex-direction:row; justify-content:flex-start; align-items:center; padding:25px;">
+                        <i class="fa fa-times-circle" style="font-size:20px; margin-right:10px;"></i>
+                        <h1 style="font-size:25px; font-weight: bold;">Toilet Paper Rolls</h1>
+                    </div>       
                 </div>
                 <div class="plusIcon" (click)="addPrize=!addPrize">
                     <i class="fa fa-plus" style="color:#fff; font-size:30px;"></i>
                 </div>
-                <div class="plusIcon" (click)="addPrize=false" *ngIf="addPrize==true">
+                <div class="plusIcon" (click)="addPrize=false; checkPrize=true;" *ngIf="addPrize==true">
                     <i class="fa fa-check" style="color:#fff; font-size:30px;"></i>
                 </div>
                
