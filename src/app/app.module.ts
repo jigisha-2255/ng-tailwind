@@ -5,17 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { SpinComponent } from './spin/spin.component';
-import { NgImageSliderModule } from 'ng-image-slider';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoComponent,
-    SpinComponent
+    SpinComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    NgImageSliderModule,
+    SlickCarouselModule,
     AppRoutingModule
   ],
   providers: [],

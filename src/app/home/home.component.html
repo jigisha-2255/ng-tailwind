@@ -1,0 +1,1020 @@
+<div class="grid grid-cols-3 h-auto w-full bg-gray-300 p-2">
+    <div class="flex justify-center">
+        <button class="bg-white rounded-3xl mx-2 py-2 px-2 flex justify-center font-bold text-gray-400 w-1/4"
+            (click)="activeSprint=!activeSprint">
+            Active Sprint
+        </button>
+        <div class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-gray-400 w-1/5">
+            +2 More
+        </div>
+    </div>
+    <div class="grid grid-cols-2" *ngIf="exportMode==false">
+        <div class="float-right">
+            <button class="bg-blue rounded-3xl lg:float-right mx-2 py-2 px-5 d-flex">
+                <img src="assets/sendIcon.svg" class="sendIcon" alt="">
+                <span class="text-white">Send a Kudo</span>
+            </button>
+        </div>
+        <div class="float-left">
+            <button class="bg-blue rounded-3xl lg:float-left text-white mx-2 py-2 px-5 d-flex">
+                <img src="assets/playIcon.svg" alt="" class="playIcon">
+                <span class="text-white">
+                    Play Kudoboard
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="flex flex-row justify-start" *ngIf="exportMode==true">
+        <div>
+            <button class="bg-blue rounded-3xl py-2 px-7 mx-2 d-flex justify-center">
+                <span class="text-white">Export PDF</span>
+            </button>
+        </div>
+        <div>
+            <button class="bg-blue rounded-3xl text-white py-2 px-7 mx-2 d-flex justify-center">
+                <span class="text-white">
+                    Export DOC
+                </span>
+            </button>
+        </div>
+        <div>
+            <button class="bg-blue rounded-3xl text-white py-2 px-7 mx-2 d-flex justify-center">
+                <span class="text-white">
+                    Export JPG
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="flex justify-end align-middle">
+        <div class="bg-white rounded-3xl mx-2 py-2 px-5 w-1/2">
+            <i class="fa fa-search flex align-middle float-right"></i>
+        </div>
+        <button class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-blue-950 w-1/3"
+            (click)="given=!given;" *ngIf="given==false">
+            Given
+        </button>
+        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950 w-1/3 h-10 btn-bg"
+            (click)="given=!given;" *ngIf="given==true">
+            <span class="-mr-7">
+                Given
+            </span>
+            <img src="assets/bottomRight4.png" class="givenIcon">
+        </button>
+        <button class="bg-white rounded-3xl mx-2 py-2 px-5 flex justify-center font-bold text-blue-950 w-1/3"
+            (click)="received=!received;" *ngIf="received==false">
+            Received
+        </button>
+        <button class="rounded-3xl mx-2 py-2 flex justify-center font-bold text-blue-950 w-1/3 h-10 btn-bg"
+            (click)="received=!received;" *ngIf="received==true">
+            <span class="-mr-7">
+                Received
+            </span>
+            <img src="assets/bottomRight4.png" class="receivedIcon">
+        </button>
+        <div class="w-1/3 flex justify-start ml-3 align-center" *ngIf="exportMode==false">
+            <img src="assets/threeDots.svg" class="h-6" alt="" (click)="settingDropdown=!settingDropdown">
+        </div>
+        <div class="w-1/3 flex align-center justify-start ml-2" *ngIf="exportMode==true" (click)="exportMode=false">
+            <i class="fa fa-times closeIcon"></i>
+        </div>
+    </div>
+</div>
+
+<div class="flex flex-row">
+    <div class="grid grid-cols-4 h-100 w-full bg-gray-100 p-7">
+        <div class="flex flex-col w-1/4 m-2 card" (click)="showFullData=!showFullData">
+            <div class="has-bg-img card-1-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft1.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName=true"
+                            (mouseout)="showName=false">
+                    </div>
+                    <div *ngIf="showName" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Toni Kroos</small><br />
+                        <small class="email1Color m-0 p-0">tonikroos@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Totally Awesome
+                    </div>
+                    <div class="w-1/6 justify-end absolute top-0 -right-5 h-auto w-auto">
+                        <img src="assets/topRight1.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    Thank you for always being my sides during all the interviews and decision makings in the last
+                    sprint. Without you if wouldn't be that easy for me to manage everything. Looking forward for more
+                    tasks together :D
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-1-bottom relative">
+                <img src="assets/bottomPattern1New.svg" class="absolute rotate-[270deg] bottomPatternImg zIndex">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="imageSection">
+                        <img src="assets/imageIcon.svg" alt="">
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon1=!socialIcon1">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon1">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div *ngIf="showBottomName" class="box-shadow card1Right z-index">
+                    <small class="font-extrabold m-0 p-0">Toni Kroos</small><br />
+                    <small class="emailColor m-0 p-0">tonikroos@archibo.de</small>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight1.png" class="float-right img imageBottom"
+                        (mouseover)="showBottomName=true" (mouseout)="showBottomName=false" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-2-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft2.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName2=true"
+                            (mouseout)="showName2=false">
+                    </div>
+                    <div *ngIf="showName2" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Toni Kroos</small><br />
+                        <small class="email2Color m-0 p-0">tonikroos@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Congratulations
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-16 right-10 h-auto w-auto">
+                        <img src="assets/topRight2.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    I liked your statement and willing to carry forward this learning onwards- As you said “you need all
+                    the managers in the team, We lack managers , workers are abundant in the market “.
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-2-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/redHeartIcon.svg" alt=""> 3
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon2=!socialIcon2">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon2">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight2.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPatern2.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-3-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft3.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName3=true"
+                            (mouseout)="showName3=false">
+                    </div>
+                    <div *ngIf="showName3" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Matt Hummels</small><br />
+                        <small class="email3Color m-0 p-0">m.hummels@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Proud
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-3 -right-3 h-auto w-auto">
+                        <img src="assets/topRight3.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    Amazing Job Bhai on Spiritto UI/UX. I was wondering earlier how we could digitalized that module but
+                    what you did was beyond my expectation level :D
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-3-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon3=!socialIcon3">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon3">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight3.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern3.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-4-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft4.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName4=true"
+                            (mouseout)="showName4=false">
+                    </div>
+                    <div *ngIf="showName4" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Klara Klaus</small><br />
+                        <small class="email4Color m-0 p-0">klaraklaus@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Great Job
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-3 -right-3 h-auto w-auto">
+                        <img src="assets/topRight4.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our
+                    first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-4-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon4=!socialIcon4">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon4">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight4.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPatterm4.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-5-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft5.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName5=true"
+                            (mouseout)="showName5=false">
+                    </div>
+                    <div *ngIf="showName5" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Gene Hurt</small><br />
+                        <small class="email5Color m-0 p-0">gene.hurt@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Well Done
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-2 -right-3 h-auto w-auto">
+                        <img src="assets/topRight5.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content card-5-content">
+                    A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our
+                    first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-5-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon5=!socialIcon5">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon5">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight5.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern5.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-6-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft6.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName6=true"
+                            (mouseout)="showName6=false">
+                    </div>
+                    <div *ngIf="showName6" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Satya Chan</small><br />
+                        <small class="email5Color m-0 p-0">satya.chan@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Thanks
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-2 -right-3 h-auto w-auto">
+                        <img src="assets/topRight6.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our
+                    first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-6-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon6=!socialIcon6">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon6">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight6.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern6.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-7-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft7.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName7=true"
+                            (mouseout)="showName7=false">
+                    </div>
+                    <div *ngIf="showName7" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Chand Jones</small><br />
+                        <small class="email5Color m-0 p-0">chand.jones@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Very Happy
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-6 right-1 h-auto w-auto">
+                        <img src="assets/topRight7.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content card-7-content">
+                    Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well
+                    and created the UI design and concept based on the Merit money. Keep it up! :) Cheers</div>
+            </div>
+            <div class="flex has-bg-bottom card-7-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon7=!socialIcon7">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon7">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight7.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern7.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-8-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft8.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName8=true"
+                            (mouseout)="showName8=false">
+                    </div>
+                    <div *ngIf="showName8" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Ruang Seni</small><br />
+                        <small class="email5Color m-0 p-0">ruang.seni@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Many Thanks
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-6 right-1 h-auto w-auto">
+                        <img src="assets/topRight8.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well
+                    and created the UI design and concept based on the Merit money. Keep it up! :) Cheers</div>
+            </div>
+            <div class="flex has-bg-bottom card-7-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon8=!socialIcon8">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon8">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight8.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern8.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-3-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft3.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName9=true"
+                            (mouseout)="showName9=false">
+                    </div>
+                    <div *ngIf="showName9" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Matt Hummels</small><br />
+                        <small class="email3Color m-0 p-0">m.hummels@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Proud
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-3 -right-3 h-auto w-auto">
+                        <img src="assets/topRight3.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    Amazing Job Bhai on Spiritto UI/UX. I was wondering earlier how we could digitalized that module but
+                    what you did was beyond my expectation level :D
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-3-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon9=!socialIcon9">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon9">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight3.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern3.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-4-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft4.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName10=true"
+                            (mouseout)="showName10=false">
+                    </div>
+                    <div *ngIf="showName10" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Klara Klaus</small><br />
+                        <small class="email4Color m-0 p-0">klaraklaus@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Great Job
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-3 -right-3 h-auto w-auto">
+                        <img src="assets/topRight4.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our
+                    first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-4-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon10=!socialIcon10">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon10">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight4.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPatterm4.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-1-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft1.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName11=true"
+                            (mouseout)="showName11=false">
+                    </div>
+                    <div *ngIf="showName11" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Toni Kroos</small><br />
+                        <small class="email2Color m-0 p-0">toni.kroos@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Totally Awesome
+                    </div>
+                    <div class="w-1/6 justify-end absolute top-0 -right-5 h-auto w-auto">
+                        <img src="assets/topRight1.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    Thank you for always being my sides during all the interviews and decision makings in the last
+                    sprint. Without you if wouldn't be that easy for me to manage everything. Looking forward for more
+                    tasks together :D
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-1-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="imageSection">
+                        <img src="assets/imageIcon.svg" alt="">
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon11=!socialIcon11">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon11">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight1.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern1New.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-2-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft2.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName12=true"
+                            (mouseout)="showName12=false">
+                    </div>
+                    <div *ngIf="showName12" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Toni Kroos</small><br />
+                        <small class="email2Color m-0 p-0">toni.kroos@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Congratulations
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-16 right-10 h-auto w-auto">
+                        <img src="assets/topRight2.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    I liked your statement and willing to carry forward this learning onwards- As you said “you need all
+                    the managers in the team, We lack managers , workers are abundant in the market “.
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-2-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/redHeartIcon.svg" alt=""> 3
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon12=!socialIcon12">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon12">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight2.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPatern2.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-6-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft6.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName13=true"
+                            (mouseout)="showName13=false">
+                    </div>
+                    <div *ngIf="showName13" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Satya Chan</small><br />
+                        <small class="email5Color m-0 p-0">satya.chan@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Thanks
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-2 -right-3 h-auto w-auto">
+                        <img src="assets/topRight6.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our
+                    first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-6-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon13=!socialIcon13">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon13">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight6.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern6.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-7-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft7.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName14=true"
+                            (mouseout)="showName14=false">
+                    </div>
+                    <div *ngIf="showName14" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Chand Jones</small><br />
+                        <small class="email5Color m-0 p-0">chand.jones@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Very Happy
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-6 right-1 h-auto w-auto">
+                        <img src="assets/topRight7.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content card-7-content">
+                    Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well
+                    and created the UI design and concept based on the Merit money. Keep it up! :) Cheers</div>
+            </div>
+            <div class="flex has-bg-bottom card-7-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon14=!socialIcon14">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon14">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight7.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern7.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-8-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft8.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName15=true"
+                            (mouseout)="showName15=false">
+                    </div>
+                    <div *ngIf="showName15" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Ruang Seni</small><br />
+                        <small class="email5Color m-0 p-0">ruang.seni@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Many Thanks
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-6 right-1 h-auto w-auto">
+                        <img src="assets/topRight8.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content">
+                    Hi Chad, I am absolutely amazed and stunned with your idea and creativity! I trust you studied well
+                    and created the UI design and concept based on the Merit money. Keep it up! :) Cheers</div>
+            </div>
+            <div class="flex has-bg-bottom card-7-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon15=!socialIcon15">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon15">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight8.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern8.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+        <div class="flex flex-col w-1/4 m-2 card">
+            <div class="has-bg-img card-5-bg">
+                <div class="flex relative">
+                    <div class="w-1/6">
+                        <img src="assets/topLeft5.png" alt="" class="imageLeft imageLeft1" (mouseover)="showName16=true"
+                            (mouseout)="showName16=false">
+                    </div>
+                    <div *ngIf="showName16" class="box-shadow card1Left">
+                        <small class="font-extrabold m-0 p-0">Gene Hurt</small><br />
+                        <small class="email5Color m-0 p-0">gene.hurt@archibo.de</small>
+                    </div>
+                    <div class="w-2/3 card-head">
+                        Well Done
+                    </div>
+                    <div class="w-1/6 justify-end absolute -top-2 -right-3 h-auto w-auto">
+                        <img src="assets/topRight5.svg" alt="" class="rotate-[270deg]">
+                    </div>
+                </div>
+                <div class="card-content card-5-content">
+                    A big thanks to you for being an acting scrum master and helping me and my HR team-mate plan our
+                    first ever HR Sprint! It proves you have great leadership skills! Keep it up!
+                </div>
+            </div>
+            <div class="flex has-bg-bottom card-5-bottom relative">
+                <div class="w-1/2 flex justify-start align-bottom">
+                    <div class="likeSection">
+                        <img src="assets/heartIcon.svg" alt=""> 2
+                        <i class="fa-regular fa-ellipsis-stroke-vertical"></i>
+                    </div>
+                    <div class="commentSection">
+                        <img src="assets/commentIcon.svg" alt=""> 5
+                    </div>
+                    <div class="ellipsisSection" (click)="socialIcon16=!socialIcon16">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                <div class="w-3/12 justify-center">
+                    <div class="flex p-2 mb-2 bg-white box-shadow" *ngIf="socialIcon16">
+                        <img src="assets/linkdinIcon.svg" alt="" class="img">
+                        <img src="assets/xingIcon.svg" alt="" class="img">
+                        <img src="assets/facebookLogo.svg" alt="" class="img">
+                    </div>
+                </div>
+                <div class="w-1/3">
+                    <img src="assets/bottomRight5.png" class="float-right img" alt="" class="imageBottom">
+                </div>
+                <img src="assets/bottomPattern5.svg" class="absolute rotate-[270deg] bottomPatternImg">
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showFullData==true" class="sidebar">
+        <div class="flex flex-row justify-around bg-white p-3 rounded-full my-5 mx-5">
+            <img src="assets/bottomRight1.png" alt="" class="w-1/4">
+            <div class="card-head w-1/2 p-0">
+                <p class="rounded-full m-0 heading">
+                    Totally Awesome
+                </p>
+            </div>
+            <img src="assets/topLeft1.png" class="w-1/4">
+        </div>
+        <div class="bg-white p-2 rounded-xl mb-5 mx-5">
+            <p>Thank you for always being my sides during all the interviews and decision makings in the last sprint.
+                Without you if wouldn't be that easy for me to manage everything. Looking forward for more tasks
+                together :D</p>
+        </div>
+        <div class="bg-white p-2 rounded-xl mb-5 h-96 mx-5">
+            <img src="">
+        </div>
+        <div class="p-5 rounded-xl bg-pink">
+            <div class="bg-white p-2 rounded-xl h-36 mb-5">
+            </div>
+            <div class="bg-white h-2 rounded-xl mb-5">
+            </div>
+            <div class="flex flex-col bg-white rounded-xl p-5">
+                <div class="flex flex-row">
+                    <div class="w-1/4">
+                        <img src="assets/topLeft2.png" alt="">
+                    </div>
+                    <div class="w-3/4">
+                        Amazing Job Bhai on Spiritto UI/UX. I was wondering earlier how we could digitalized that module
+                        but what you did was beyond my expectation level :D
+                    </div>
+                </div>
+                <div class="flex flex-row justify-end">
+                    <small class="text-gray-400">on 21st December, 2020</small>
+                </div>
+            </div>
+        </div>
+        <div class="p-5 rounded-xl bg-pink">
+            <div class="bg-white p-2 rounded-xl h-36 mb-5">
+            </div>
+            <div class="bg-white h-2 rounded-xl mb-5">
+            </div>
+            <div class="flex flex-col bg-white rounded-xl p-5 mb-5">
+                <div class="flex flex-row">
+                    <div class="w-1/4">
+                        <img src="assets/topLeft2.png" alt="">
+                    </div>
+                    <div class="w-3/4">
+                        I liked your statement and willing to carry forward this learning onwards- As you said “you need
+                        all the managers in the team, We lack managers , workers are abundant in the market “. Amazing
+                        Job Bhai on Spiritto UI/UX. I was wondering earlier how we could digitalized that module but
+                        what you did was beyond my expectation level :D
+
+                    </div>
+                </div>
+                <div class="flex flex-row justify-end">
+                    <small class="text-gray-400">on 21st December, 2020</small>
+                </div>
+            </div>
+            <div class="flex flex-col bg-white rounded-xl p-5">
+                <div class="flex flex-row">
+                    <div class="w-1/4">
+                        <img src="assets/topLeft2.png" alt="">
+                    </div>
+                    <div class="w-3/4">
+                        A big thanks to you for being an acting scrum master and helping me and my HR Sprint! It proves
+                        you have great leadership skils! Keep it up!
+                    </div>
+                </div>
+                <div class="flex flex-row justify-end">
+                    <small class="text-gray-400">on 21st December, 2020</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="settingDropdown==true" class="settingDropdown z-index">
+    <div class="flex flex-col">
+        <div class="flex justify-start align-middle py-2" (click)="exportMode=true; settingDropdown=false">
+            <div>
+                <i class="fa fa-file check mr-2"></i>
+            </div>
+            <p>Export Mode</p>
+        </div>
+        <div class="flex justify-start align-middle py-2" (click)="popup = true; settingDropdown=false">
+            <div>
+                <i class="fa fa-cog check mr-2"></i>
+            </div>
+            <p>Settings</p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="activeSprint==true" class="activeSprintDropdown z-index">
+    <div class="position:relative;">
+        <input class="w-80 borderGray pl-2" type="search" placeholder="Search">
+        <i class="fa fa-search flex align-middle float-right search-icon"></i>
+    </div>
+    <div class="flex flex-col w-80">
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Active Sprint</p>
+            <div>
+                <small>Started 3 days ago</small>
+                <i class="fa fa-check-circle check"></i>
+            </div>
+
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 33VZ</p>
+            <div>
+                <small>21st June - 28th Jun</small>
+                <i class="fa fa-check-circle check"></i>
+            </div>
+
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 32VZ</p>
+            <div>
+                <small>12th June - 19th Jun</small>
+                <i class="fa fa-check-circle checkGray"></i>
+            </div>
+
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 31VZ</p>
+            <div>
+                <small>3rd June - 10th Jun</small>
+                <i class="fa fa-check-circle check"></i>
+            </div>
+        </div>
+        <div class="flex justify-between align-middle borderGray py-2">
+            <p>Sprint 30VZ</p>
+            <div>
+                <small>12th June - 19th Jun</small>
+                <i class="fa fa-check-circle checkGray"></i>
+            </div>
+
+        </div>
+    </div>
+</div>
